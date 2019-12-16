@@ -11,7 +11,7 @@ function test (){
 
 console.log(test.toString());
 
-//! The default toLocaleString() mathod defined by Object doesn't do any localization itself: It simply calls toString() and returns that value. The Date and Number classes define customized versions fo toLocaleString() that attempts to format numbers, dates and timmes according to local convensions.
+//! The default toLocaleString() method defined by Object doesn't do any localization itself: It simply calls toString() and returns that value. The Date and Number classes define customized versions fo toLocaleString() that attempts to format numbers, dates and timmes according to local conventions.
 var date = new Date();
 console.log(date);
 
