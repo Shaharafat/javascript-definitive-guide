@@ -6,6 +6,7 @@ console.log(new Date(2010,0,1).toString());
 
 console.log([1,2,3].valueOf()); // !array inherit the valueOf() method.
 console.log([].toString());
+console.log([].valueOf());
 console.log("".toString());
 
 
@@ -16,10 +17,6 @@ console.log(now == now.toString());
 
 // console.log(now.toString());
 console.log(now > (now - 1));
-
-
-
-
 
 
 

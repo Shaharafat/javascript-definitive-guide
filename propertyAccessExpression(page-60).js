@@ -10,7 +10,6 @@ console.log(o.x);
 console.log(o.y.z);
 console.log(o["x"]);
 console.log(a[1]); 
-console.log(a[2]["1"]);
+console.log(a[2][1]);
 // console.log(a[0].x);
-log
-
+console.log(-"2");
