@@ -64,7 +64,7 @@ add.apply(o, [10, 20]); // 34
 // =================
 
 /* 
- *Note that with call and apply, if the value passed as this is not an object, an attempt will be made to convert it to an object using the internal ToObject operation. So if the value passed is a primitive like 7 or 'foo', it will be converted to an Object using the related constructor, so the primitive number 7 is converted to an object as if by new Number(7) and the string 'foo' to an object as if by new String('foo'), e.g.
+ * Note that with call and apply, if the value passed as this is not an object, an attempt will be made to convert it to an object using the internal ToObject operation. So if the value passed is a primitive like 7 or 'foo', it will be converted to an Object using the related constructor, so the primitive number 7 is converted to an object as if by new Number(7) and the string 'foo' to an object as if by new String('foo'), e.g.
 */
 
 function bar() {
@@ -82,7 +82,7 @@ bar.call('foo'); // [object String]
 */
 
 function f() {
-  return this.a;
+  return this.a;456
 }
 
 var g = f.bind({a: 'azerty'});
@@ -112,12 +112,12 @@ var obj = {
 // Call bar as a method of obj, setting its this to obj
 // Assign a reference to the returned function to fn
 var fn = obj.bar();
+// But caution if you reference the method of obj without calling it
+var fn2 = obj.bar;
+// Then calling the arrow function this is equals to window because it follows the this from bar.
+console.log(fn2()() =
 
 // Call fn without setting this, would normally default
 // to the global object or undefined in strict mode
 console.log(fn() === obj); // true
-
-// But caution if you reference the method of obj without calling it
-var fn2 = obj.bar;
-// Then calling the arrow function this is equals to window because it follows the this from bar.
-console.log(fn2()() == window); // true
+= window); // true

@@ -27,8 +27,11 @@ console.log(a.sort());
 console.log(a.sort(function(s,t){ 
   var a = s.toLowerCase();
   var b = t.toLowerCase();
+  // console.log(s,t)
+  console.log(a,b);
   if(a < b) return -1;
   if(a > b) return 1;
   return 0;
 }));
 
+console.log(a); //modifies actual array
