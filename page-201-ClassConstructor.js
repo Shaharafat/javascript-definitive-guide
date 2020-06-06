@@ -11,12 +11,11 @@ function Range(from, to) {
   this.to = to;
 }
 
-var test =new Range(2,4)
+var test = new Range(2, 4);
 console.log(test instanceof Range);
 console.log(Object.getPrototypeOf(test));
 
 console.log(Range.prototype.isPrototypeOf(test));
-
 
 // All Range objects inherit from this object.
 // Note that the property name must be "prototype" for this to work.
@@ -47,14 +46,48 @@ r.foreach(console.log);
 console.log(r);
 
 console.log(r instanceof Range);
-Range.prototype = {}
+Range.prototype = {};
 console.log(r instanceof Range);
 
 console.log(Object.getPrototypeOf(r));
 
-
-
-
-
 console.log(test instanceof Range);
 console.log(Object.getPrototypeOf(test));
+
+// ==========================================================
+// This portion is from page - 222 to see where an object is equal or not.
+
+// The range class overwrote its constructor property. So add it now.
+Range.prototype.constructor = Range;
+
+//  A Range is not equal to any nonrange.
+// Two ranges are equal if and only if their endpoints are equal.
+Range.prototype.equals = function (that) {
+  if (that == null) return false;
+  if (that.constructor !== Range) return false;
+  //  Now return true if and only if the two endpoints are equal.
+  return this.from == that.from && this.to == that.to;
+};
+
+// ==========================================================
+// This code is from page-223
+
+// Range.prototype.compareTo = function (that) {
+//   return this.from - that.from;
+// }
+
+// Order ranges by lower bound, or upper bound if the lower bound are equal.
+//  Throws an error if passed a non-Range value..
+// Returns o if and only if this.equals(that)
+Range.prototype.compareTo = function (that) {
+  if (!(that instanceof Range))
+    throw new Error("Can't compare a Range with " + that);
+  var diff = this.from - that.from;
+  if (diff == 0) diff = this.to - that.to;
+  return diff;
+};
+
+// Given the compareTo() method for a class is so that arrays of
+// Range objects with code like this:
+ 
+

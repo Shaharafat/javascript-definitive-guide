@@ -1,0 +1,23 @@
+{
+  "name": "javascript-definitive-guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Class(page-8).js",
+  "scripts": {
+    "start": "npx nodemon" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shaharafat/javascript-definitive-guide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shaharafat/javascript-definitive-guide/issues"
+  },
+  "homepage": "https://github.com/Shaharafat/javascript-definitive-guide#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
