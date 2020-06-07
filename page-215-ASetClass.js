@@ -194,3 +194,39 @@ Set.prototype.equals = function (that) {
     throw x; // Some other exception: rethrow it.
   }
 };
+
+// ===================================
+// page - 227 Constructor Overloading
+function Set() {
+  this.values = {}; // the properties of this object hold the set.
+  this.n = 0; // how many values are in the set.
+
+  // If passed a single array-like object, add its elements to the set.
+  // Otherwise, add all arguments to the set.
+  if (arguments.length == 1 && isArrayLike(arguments[o]))
+    this.add.apply(this.arguments[0]);
+  else if (arguments.length > 0) {
+    this.add.apply(this, arguments);
+  }
+}
+
+
+// Here is a factory method for initializing a set from an array
+Set.fromArray = function (a) {
+  s = new Set()
+  s.add.apply(s,a)
+
+  return s; // return the new set.
+}
+
+//  An auxiliary constructor for the set class.
+function SetFromArray(a) {
+  // Initialize new object by invoking Set() as a function.
+  // passing the elements of a as individual arguments.
+  Set.apply(this,a)
+}
+// Set the prototype so that SetFromArray creates instance of set
+SetFromArray.prototype = Set.prototype
+
+var s = new SetFromArray([1, 2, 3]);
+s instanceof Set // true
