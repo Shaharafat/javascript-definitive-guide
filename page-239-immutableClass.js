@@ -105,7 +105,7 @@ function Range(from, to) {
 
 Range.prototype = hideprops({
   // define prototype with nonenumerable properties
-  Constructor: Range,
+  constructor: Range,
   includes: function (x) {
     return this.from <= x && x <= this.to;
   },
