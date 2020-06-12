@@ -72,7 +72,6 @@
     });
     return desc;
   };
-
   // Return a nicely formatted list of properties, listing the
   // name, value and attributes. Uses the term "permanent" to mean
   // nonconfigurable, "readonly" to mean nonwritable, and "hidden"
